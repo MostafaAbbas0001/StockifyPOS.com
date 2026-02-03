@@ -2,6 +2,7 @@ import './globals.css';
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import GlobalBackground from '@/components/GlobalBackground';
+import ClientLayout from '@/components/ClientLayout';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -61,8 +62,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen antialiased">
-        <GlobalBackground />
-        {children}
+        <ClientLayout>
+          <GlobalBackground />
+          {children}
+        </ClientLayout>
       </body>
     </html>
   );
