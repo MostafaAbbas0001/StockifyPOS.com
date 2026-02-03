@@ -1,0 +1,390 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Stockify Design System - Modern, Clean, Professional */
+
+@layer base {
+  :root {
+    /* Enterprise Navy Theme - More professional and corporate */
+    --primary: 215 75% 24%;
+    --primary-hover: 215 75% 30%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 30% 96%;
+    --secondary-foreground: 215 60% 25%;
+
+    --background: 0 0% 100%;
+    --foreground: 215 35% 15%;
+    
+    --heading: 215 50% 18%;
+    --muted-foreground: 215 15% 45%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 35% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 35% 15%;
+
+    --border: 215 20% 92%;
+    --input: 215 20% 90%;
+    --ring: 215 75% 24%;
+
+    --accent: 215 30% 96%;
+    --accent-foreground: 215 60% 25%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Enterprise Navy Theme - Dark */
+    --primary: 215 70% 45%;
+    --primary-hover: 215 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 25% 16%;
+    --secondary-foreground: 215 20% 85%;
+
+    --background: 215 30% 8%;
+    --foreground: 215 15% 90%;
+    
+    --heading: 0 0% 100%;
+    --muted-foreground: 215 15% 65%;
+
+    --card: 215 30% 10%;
+    --card-foreground: 215 15% 90%;
+
+    --popover: 215 30% 8%;
+    --popover-foreground: 215 15% 90%;
+
+    --border: 215 25% 20%;
+    --input: 215 25% 18%;
+    --ring: 215 70% 45%;
+
+    --accent: 215 25% 16%;
+    --accent-foreground: 215 20% 85%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply antialiased;
+    background-color: hsl(var(--background));
+    color: hsl(var(--body));
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+    color: hsl(var(--heading));
+  }
+}
+
+@layer components {
+  /* Section containers */
+  .section-container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+  
+  .section-padding-sm {
+    @apply py-12 md:py-16;
+  }
+
+  .section-padding-lg {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .section-spacing {
+    @apply my-16 md:my-20 lg:my-24;
+  }
+  
+  .section-divider {
+    @apply my-16 md:my-20 lg:my-24 border-t border-border;
+  }
+
+  .section-alt {
+    @apply bg-transparent;
+  }
+
+  /* Card styles */
+  .card-elevated {
+    @apply rounded-lg border border-border shadow-md hover:shadow-lg transition-shadow duration-300 bg-transparent;
+    background: transparent;
+  }
+
+  .card-feature {
+    @apply rounded-lg border border-border p-6 hover:border-muted-foreground/20 transition-all duration-300 bg-transparent;
+    background: transparent;
+  }
+
+  /* Badge variants */
+  .badge-success {
+    @apply border;
+    background: hsl(var(--success-soft));
+    color: hsl(var(--success));
+    border-color: hsl(var(--success) / 0.2);
+  }
+
+  .badge-warning {
+    @apply border;
+    background: hsl(var(--warning-soft));
+    color: hsl(var(--warning));
+    border-color: hsl(var(--warning) / 0.2);
+  }
+
+  .badge-danger {
+    @apply border;
+    background: hsl(var(--danger-soft));
+    color: hsl(var(--danger));
+    border-color: hsl(var(--danger) / 0.2);
+  }
+
+  .badge-info {
+    @apply border;
+    background: hsl(var(--info-soft));
+    color: hsl(var(--info));
+    border-color: hsl(var(--info) / 0.2);
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-hero {
+    background: linear-gradient(180deg, hsl(var(--primary) / 0.08) 0%, hsl(var(--primary) / 0.02) 100%);
+  }
+
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-hover)) 100%);
+  }
+  
+  .bg-gradient-cta {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background)) 100%);
+  }
+  
+  .bg-gradient-professional {
+    background: linear-gradient(180deg, hsl(215 75% 18%) 0%, hsl(215 75% 12%) 100%);
+  }
+
+  /* Text styles */
+  .text-overline {
+    @apply text-xs font-semibold uppercase tracking-wider;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-heading {
+    color: hsl(var(--heading));
+  }
+
+  .text-body {
+    color: hsl(var(--body));
+  }
+
+  /* Interactive states */
+  .interactive-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Glass effect for sticky header */
+  .glass-header {
+    @apply backdrop-blur-md border-b border-border;
+    background: hsl(var(--background) / 0.9);
+  }
+
+  /* Icon container */
+  .icon-container {
+    @apply inline-flex items-center justify-center rounded-lg bg-gradient-dark p-3 text-white;
+  }
+
+  .icon-container-light {
+    @apply inline-flex items-center justify-center rounded-lg bg-secondary p-3;
+    color: hsl(var(--heading));
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Scroll shadow for sticky elements */
+  .scroll-shadow {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  }
+}
+
+/* Admin Console Exact Component Styles for Product Demos */
+.product-demo-wrapper {
+  /* Exact same CSS variables as admin console */
+  --radius: 0.75rem;
+
+  /* Base Colors */
+  --background: 0 0% 98%;
+  --foreground: 240 10% 4%;
+  --surface: 0 0% 100%;
+  --surface-hover: 0 0% 97%;
+  
+  /* Card */
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 4%;
+  
+  /* Popover */
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 4%;
+  
+  /* Primary - Charcoal */
+  --primary: 240 6% 10%;
+  --primary-hover: 240 6% 15%;
+  --primary-foreground: 0 0% 98%;
+  
+  /* Secondary */
+  --secondary: 240 5% 96%;
+  --secondary-hover: 240 5% 92%;
+  --secondary-foreground: 240 6% 10%;
+  
+  /* Muted */
+  --muted: 240 5% 96%;
+  --muted-foreground: 240 4% 46%;
+  
+  /* Accent */
+  --accent: 240 5% 96%;
+  --accent-foreground: 240 6% 10%;
+  
+  /* Destructive / Danger */
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 98%;
+  
+  /* Status Colors */
+  --success: 142 76% 36%;
+  --success-soft: 142 76% 95%;
+  --success-foreground: 142 76% 26%;
+  
+  --warning: 38 92% 50%;
+  --warning-soft: 38 92% 95%;
+  --warning-foreground: 38 92% 30%;
+  
+  --danger: 0 72% 51%;
+  --danger-soft: 0 72% 96%;
+  --danger-foreground: 0 72% 41%;
+  
+  --info: 199 89% 48%;
+  --info-soft: 199 89% 96%;
+  --info-foreground: 199 89% 32%;
+  
+  /* Borders & Inputs */
+  --border: 240 6% 90%;
+  --border-muted: 240 6% 94%;
+  --input: 240 6% 90%;
+  --ring: 240 6% 10%;
+
+  /* Sidebar */
+  --sidebar-background: 0 0% 100%;
+  --sidebar-foreground: 240 5% 26%;
+  --sidebar-primary: 240 6% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 5% 96%;
+  --sidebar-accent-foreground: 240 6% 10%;
+  --sidebar-border: 240 6% 92%;
+  --sidebar-ring: 240 6% 10%;
+  
+  /* Font and component overrides */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Admin Console Component Style Overrides */
+.product-demo-wrapper button {
+  @apply rounded-xl transition-all duration-200;
+}
+
+.product-demo-wrapper button[data-variant="default"] {
+  @apply bg-primary text-primary-foreground shadow-sm hover:bg-primary-hover active:scale-[0.98];
+}
+
+.product-demo-wrapper button[data-variant="secondary"] {
+  @apply bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary-hover active:scale-[0.98];
+}
+
+.product-demo-wrapper button[data-variant="outline"] {
+  @apply border border-border bg-transparent text-foreground hover:bg-muted active:scale-[0.98];
+}
+
+.product-demo-wrapper button[data-variant="ghost"] {
+  @apply text-foreground hover:bg-muted hover:text-foreground;
+}
+
+.product-demo-wrapper .card {
+  @apply rounded-xl border border-border shadow-sm;
+  background: hsl(var(--card));
+}
+
+.product-demo-wrapper .gradient-tile {
+  background: linear-gradient(135deg, hsl(240 6% 10%) 0%, hsl(240 6% 20%) 100%);
+}
+
+.product-demo-wrapper .badge {
+  @apply inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+}
+
+.product-demo-wrapper .badge-success {
+  background-color: hsl(var(--success-soft));
+  color: hsl(var(--success-foreground));
+  border-color: hsl(var(--success) / 0.2);
+}
+
+.product-demo-wrapper .badge-warning {
+  background-color: hsl(var(--warning-soft));
+  color: hsl(var(--warning-foreground));
+  border-color: hsl(var(--warning) / 0.2);
+}
+
+.product-demo-wrapper .badge-danger {
+  background-color: hsl(var(--danger-soft));
+  color: hsl(var(--danger-foreground));
+  border-color: hsl(var(--danger) / 0.2);
+}
+
+.product-demo-wrapper .badge-info {
+  background-color: hsl(var(--info-soft));
+  color: hsl(var(--info-foreground));
+  border-color: hsl(var(--info) / 0.2);
+}
