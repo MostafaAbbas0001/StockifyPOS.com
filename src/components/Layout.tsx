@@ -12,7 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="relative flex min-h-screen flex-col">
       <Breadcrumbs />
       <Header />
-      <main className="flex-1 pt-16 md:pt-20">{children}</main>
+      <main className="flex-1 pt-6 md:pt-1">{children}</main>
       <Footer />
     </div>
   );

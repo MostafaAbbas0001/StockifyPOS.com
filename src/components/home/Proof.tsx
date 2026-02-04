@@ -1,62 +1,60 @@
 "use client";
 
-import AnimatedSection from "@/components/AnimatedSection";
-
-const metrics = [
-  { value: "99.8%", label: "System uptime across deployments" },
-  { value: "<2s", label: "Average transaction processing time" },
-  { value: "50+", label: "Active retail installations" },
-];
-
-const statements = [
-  {
-    text: "The system handles our daily transaction volume without performance issues. Stock counts stay accurate across our three locations.",
-    source: "Multi-branch electronics retailer"
-  },
-  {
-    text: "Our cashiers were processing sales within the first week. The barcode printer setup took one afternoon.",
-    source: "Grocery store operator"
-  },
-  {
-    text: "Purchase order tracking reduced our overstock situations. We reorder based on actual sales data now.",
-    source: "Hardware supplies distributor"
-  }
+const highlights = [
+  "On-Premise POS",
+  "Barcode Support",
+  "Purchase Order Management",
+  "Multi-Branch Transfers",
+  "Role-Based Access",
+  "Mobile Accessibility",
+  "Delivery Management",
 ];
 
 const Proof = () => {
   return (
-    <section className="section-container section-padding border-t border-border">
-      <AnimatedSection direction="up">
-        <h2 className="text-2xl font-semibold md:text-3xl">
-          Deployment Record
-        </h2>
-        
-        <div className="mt-10 grid gap-8 md:grid-cols-3">
-          {metrics.map((metric) => (
-            <div key={metric.label} className="text-center">
-              <div className="text-3xl font-semibold text-primary md:text-4xl">
-                {metric.value}
+    <section className="w-full py-0">
+      <div className="section-container">
+        <div
+          className="relative overflow-hidden rounded-xl border border-border/80 bg-secondary/80 py-4 pause-on-hover"
+          style={{
+            maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
+            WebkitMaskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
+          }}
+        >
+          <div className="flex w-max animate-marquee items-center gap-8 px-8">
+            {[...highlights, ...highlights].map((highlight, idx) => (
+              <div key={idx} className="flex items-center gap-3 whitespace-nowrap">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 border border-primary/20 text-primary">
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    viewBox="0 0 16 16"
+                    className="h-4 w-4"
+                  >
+                    <path
+                      d="M6.2 10.3 3.6 7.7 2.5 8.8l3.7 3.7 7-7-1.1-1.1z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span className="text-sm font-medium text-muted-foreground">{highlight}</span>
               </div>
-              <div className="mt-2 text-sm text-muted-foreground">
-                {metric.label}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-
-        <div className="mt-16 grid gap-6 lg:grid-cols-3">
-          {statements.map((statement, index) => (
-            <div key={index} className="rounded-lg border border-border p-6">
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                "{statement.text}"
-              </p>
-              <p className="mt-4 text-xs font-medium text-foreground">
-                — {statement.source}
-              </p>
-            </div>
-          ))}
-        </div>
-      </AnimatedSection>
+      </div>
+      <style jsx>{`
+        @keyframes marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 40s linear infinite;
+        }
+        .pause-on-hover:hover .animate-marquee {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 };

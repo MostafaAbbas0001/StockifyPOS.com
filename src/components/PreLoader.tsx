@@ -16,7 +16,7 @@ const PreLoader = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 20 }}
+        exit={{ opacity: 0, y: 0 }}
         transition={{ delay: 0.1, duration: 0.7, ease: "easeInOut" }}
       >
         <Image
@@ -27,11 +27,6 @@ const PreLoader = () => {
           priority
         />
       </motion.div>
-      <motion.div
-        className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-      />
     </motion.div>
   );
 };

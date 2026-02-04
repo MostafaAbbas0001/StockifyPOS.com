@@ -59,21 +59,20 @@ export default function ContactPageClient() {
       <section className="section-container section-padding text-center">
         <AnimatedSection direction="right" className="space-y-4">
           <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
-            <span className="h-2 w-2 rounded-full bg-primary" /> Dedicated sales coordination
+            <span className="h-2 w-2 rounded-full bg-primary" /> Retail rollout guidance
           </div>
-          <h1 className="text-display-sm font-bold md:text-display">Talk with sales</h1>
+          <h1 className="text-display-sm font-bold md:text-display">Talk with the Stockify team</h1>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Reach out for POS system walkthroughs, pricing packages, and implementation details.
+            Tell us about your stores and we’ll map how Stockify can be implemented for your setup with clear next steps.
           </p>
-          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-3">
+          <div className="mx-auto grid max-w-4xl gap-3 md:grid-cols-3">
             {[
-              { label: 'Avg. response time', value: '< 12 hours' },
-              { label: 'Deployment countries', value: '6 regions' },
-              { label: 'Installations', value: '150+ retailers' },
-            ].map((stat) => (
-              <div key={stat.label} className="rounded-lg border border-border bg-background/80 p-4">
-                <div className="text-sm uppercase tracking-wide text-muted-foreground">{stat.label}</div>
-                <div className="text-2xl font-semibold text-heading">{stat.value}</div>
+              'Book a live walkthrough focused on your workflows',
+              'Get a rollout plan covering hardware, data, and training',
+              'Straight answers on pricing, support, and migration',
+            ].map((item) => (
+              <div key={item} className="rounded-lg border border-border bg-background/80 p-4 text-sm text-muted-foreground">
+                {item}
               </div>
             ))}
           </div>

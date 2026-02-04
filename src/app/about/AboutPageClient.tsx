@@ -25,10 +25,13 @@ export default function AboutPageClient() {
 
       <section className="section-container section-padding">
         <AnimatedSection direction="right" className="max-w-3xl">
-          <h1 className="text-3xl font-semibold md:text-4xl">Company</h1>
-          <p className="mt-4 text-muted-foreground">
-            Stockify develops and deploys retail management software 
-            for physical store operations.
+          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
+            <span className="h-2 w-2 rounded-full bg-primary" />
+            Retail operations partner
+          </div>
+          <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">About Stockify</h1>
+          <p className="mt-6 text-lg text-muted-foreground">
+            We build and deploy on-premise POS and inventory software so store teams can run confidently every day.
           </p>
         </AnimatedSection>
       </section>

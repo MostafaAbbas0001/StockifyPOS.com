@@ -23,8 +23,8 @@ export default function Home() {
       <ValueSummary />
       <Capabilities />
       <TeamsUsage />
-      <Proof />
       <Implementation />
+      <Proof />
       <RefinedCTA />
     </Layout>
   );

@@ -26,12 +26,15 @@ export default function ProductPageClient() {
       {/* Header */}
       <section className="section-container section-padding">
         <AnimatedSection direction="right" className="max-w-3xl">
-          <h1 className="text-3xl font-semibold md:text-4xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
+            <span className="h-2 w-2 rounded-full bg-primary" />
+            Built for retail ops
+          </div>
+          <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
             Product Overview
           </h1>
-          <p className="mt-4 text-muted-foreground">
-            Technical documentation of Stockify POS system architecture, 
-            modules, and operational workflows.
+          <p className="mt-6 text-lg text-muted-foreground">
+            See how Stockify POS is structured from on-premise architecture to modules that keep sales, inventory, and reporting in sync.
           </p>
         </AnimatedSection>
       </section>

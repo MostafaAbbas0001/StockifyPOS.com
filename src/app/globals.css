@@ -84,9 +84,95 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
+  /* Global scrollbar styling (light + dark) */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.4) hsl(var(--secondary));
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: hsl(var(--secondary));
+    border-radius: 9999px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--primary)) 0%, hsl(var(--primary-hover)) 100%);
+    border-radius: 9999px;
+    border: 2px solid hsl(var(--secondary));
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(var(--primary-hover)) 0%, hsl(var(--primary)) 100%);
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
     color: hsl(var(--heading));
+  }
+
+  /* Fill animation for clickable buttons/links */
+  button,
+  [role="button"],
+  a.inline-flex {
+    @apply transition-shadow duration-200 ease-out;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  button::before,
+  [role="button"]::before,
+  a.inline-flex::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, hsl(var(--primary) / 0.12) 0%, hsl(var(--primary) / 0.06) 45%, transparent 70%);
+    transform: scale(0);
+    transition: transform 0.25s ease;
+    z-index: -1;
+  }
+
+  button:not(:disabled):hover::before,
+  [role="button"]:hover::before,
+  a.inline-flex:hover::before {
+    transform: scale(1.6);
+  }
+
+  button:not(:disabled):hover,
+  [role="button"]:hover,
+  a.inline-flex:hover {
+    @apply shadow-md;
+  }
+
+  button:not(:disabled):active::before,
+  [role="button"]:active::before,
+  a.inline-flex:active::before {
+    transform: scale(1.1);
+  }
+
+  button:not(:disabled):active,
+  [role="button"]:active,
+  a.inline-flex:active {
+    @apply shadow-sm;
+  }
+
+  /* Inverse hover for primary buttons */
+  :is(button,[role="button"],a.inline-flex).bg-primary {
+    color: hsl(var(--primary-foreground));
+  }
+
+  :is(button,[role="button"],a.inline-flex).bg-primary::before {
+    background: radial-gradient(circle at center, hsl(var(--primary) / 0.2) 0%, hsl(var(--primary) / 0.1) 45%, transparent 70%);
+  }
+
+  :is(button,[role="button"],a.inline-flex).bg-primary:not(:disabled):hover {
+    color: hsl(var(--primary-foreground));
+    border-color: hsl(var(--primary));
   }
 }
 
@@ -97,7 +183,8 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-20 lg:py-24;
+    /* Slightly tighter spacing to reduce gap below the nav across pages */
+    @apply py-12 md:py-16 lg:py-20;
   }
   
   .section-padding-sm {

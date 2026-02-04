@@ -51,10 +51,13 @@ export default function PricingPageClient() {
 
       <section className="section-container section-padding">
         <AnimatedSection direction="right" className="max-w-3xl">
-          <h1 className="text-3xl font-semibold md:text-4xl">Pricing Structure</h1>
-          <p className="mt-4 text-muted-foreground">
-            Stockify POS pricing is based on deployment scope and support requirements. 
-            Final pricing is determined after requirements assessment.
+          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
+            <span className="h-2 w-2 rounded-full bg-primary" />
+            Deployment-based pricing
+          </div>
+          <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Pricing tailored to your rollout</h1>
+          <p className="mt-6 text-lg text-muted-foreground">
+            Stockify pricing is scoped to your terminals, branches, and support needs so you only pay for what you deploy.
           </p>
         </AnimatedSection>
       </section>
